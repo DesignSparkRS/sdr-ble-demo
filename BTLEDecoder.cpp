@@ -6,7 +6,7 @@
 #include <iostream>
 
 /***********************************************************************
- * |PothosDoc Decode BTLE
+ * |PothosDoc BTLE Decoder
  *
  * Decode bluetooth low energy packets.
  * The decoder block accepts a stream of 16-bit integer samples on input port 0,
@@ -26,12 +26,12 @@
  * |category /Decode
  * |keywords bluetooth low energy
  *
- * |factory /btle/decode_btle()
+ * |factory /btle/btle_decoder()
  **********************************************************************/
-class DecodeBTLE : public Pothos::Block
+class BTLEDecoder : public Pothos::Block
 {
 public:
-    DecodeBTLE(void)
+    BTLEDecoder(void)
     {
         this->setupInput(0, typeid(uint16_t));
         this->setupOutput(0);
@@ -39,7 +39,7 @@ public:
 
     static Block *make(void)
     {
-        return new DecodeBTLE();
+        return new BTLEDecoder();
     }
 
     void work(void)
@@ -62,5 +62,5 @@ private:
     BTLEUtilsDecoder _decoder;
 };
 
-static Pothos::BlockRegistry registerDecodeBTLE(
-    "/btle/decode_btle", &DecodeBTLE::make);
+static Pothos::BlockRegistry registerBTLEDecoder(
+    "/btle/btle_decoder", &BTLEDecoder::make);

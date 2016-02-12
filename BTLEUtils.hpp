@@ -3,6 +3,8 @@
  */
 #pragma once
 #include <Pothos/Object/Containers.hpp>
+#include <Poco/Format.h>
+#include <chrono>
 
 /*
 The MIT License (MIT)
@@ -50,6 +52,7 @@ Steve Markgraf, RTL-SDR Library - https://github.com/steve-m/librtlsdr
 //#include <unistd.h>    /* for getopt */
 
 #include <cstdint>
+#include <cctype>
 
 struct BTLEUtilsDecoder
 {
@@ -274,6 +277,62 @@ bool DecodeBTLEPacket(int32_t sample, int srate){
 		//printf("length:%d data:",packet_length);
 		//for (c=0;c<packet_length+2;c++) printf("%02X ",SwapBits(packet_data[c]));
 		//printf("\n");
+
+        //packet metadata
+        packetData.clear();
+        packetData["Timestamp"] = Pothos::Object(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+        packetData["Address"] = Pothos::Object(Poco::format("0x%08x", unsigned(packet_addr_l)));
+        packetData["CRC"] = Pothos::Object(Poco::format("0x%06x", unsigned(packet_crc)));
+        packetData["SampleIndex"] = Pothos::Object(sample);
+        packetData["Threshold"] = Pothos::Object(g_threshold);
+
+        //extract 6-byte MAC
+        std::string mac;
+        for (int i = 7; i >= 2; i--)
+        {
+            mac += Poco::format("%02x:", unsigned(SwapBits(packet_data[i])));
+        }
+        packetData["MAC"] = Pothos::Object(mac.substr(0, mac.size()-1));
+
+        //extract packet fields
+        //very oversimplified for a select number of fields
+        uint8_t *data = packet_data + 8;
+        size_t bytesLeft = packet_length+2 - 8;
+        while (bytesLeft >= 3)
+        {
+            size_t len = SwapBits(data[0]);
+            if (len >= bytesLeft) break;
+            unsigned type = SwapBits(data[1]);
+            std::string name;
+            switch (type)
+            {
+            case 0x01: name = "Flags"; break;
+            case 0x08: name = "Shortened Name"; break;
+            case 0x09: name = "Complete Name"; break;
+            case 0x24: name = "URI"; break;
+            case 0xFF: name = "Data"; break;
+            default: name = Poco::format("0x%02x", type); break;
+            }
+
+            if (type == 0x01 and len == 2)
+            {
+                packetData[name] = Pothos::Object(unsigned(SwapBits(data[2])));
+            }
+            else
+            {
+                std::string value;
+                for (size_t i = 2; i < len+1; i++)
+                {
+                    char ch = SwapBits(data[i]);
+                    if (std::isprint(ch)) value.push_back(ch);
+                    else value += Poco::format("\\x%02x", unsigned(ch));
+                }
+                packetData[name] = Pothos::Object(value);
+            }
+            bytesLeft -= len + 1;
+            data += len + 1;
+        }
+
 		return true;
 	} else return false;
 }

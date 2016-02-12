@@ -12,7 +12,7 @@ find_package(Pothos CONFIG REQUIRED)
 POTHOS_MODULE_UTIL(
     TARGET BTLE_Blocks
     SOURCES
-        DecodeBTLE.cpp
+        BTLEDecoder.cpp
     DESTINATION btle
     ENABLE_DOCS
 )
