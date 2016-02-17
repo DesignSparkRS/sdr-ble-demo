@@ -10,7 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 INRATE = 250e3
-THRESH = 0.01
 
 def runningMeanFast(x, N):
     return np.convolve(x, np.ones((N,))/N)[(N-1):]
@@ -28,45 +27,46 @@ def plotHelper(*samps):
 if __name__ == '__main__':
     rawSamples = np.fromfile(sys.argv[1], np.complex64)
     print("Found %d samples"%rawSamples.size)
+
     absSamples = np.abs(rawSamples)
     envelope = runningMeanFast(absSamples, 20)
 
-    bits = np.array([0]*envelope.size, np.uint8)
-    for i, value in enumerate(envelope):
-        if value > THRESH: bits[i] = 1
+    selection = envelope[envelope.size/2:envelope.size/2+30000]
+    selection /= max(selection)
+
+    bits = np.array([0]*selection.size, np.uint8)
+    for i, value in enumerate(selection):
+        if value > 0.5: bits[i] = 1
         else: bits[i] = 0
 
+    #find transitions of 3 ms of 1s to 7ms of zeros
     startCorrMask = np.concatenate((
         np.array([1]*int(3e-3*INRATE)),
         np.array([0]*int(7e-3*INRATE)),
     ))
 
-    codes = set()
-    codeCounts = dict()
-
     print('correlate for frame starts')
-    matches = np.correlate(bits, startCorrMask)/sum(startCorrMask)
+    matches = np.correlate(bits, startCorrMask)/float(sum(startCorrMask))
+    for i, value in enumerate(matches):
+        if value > 0.9:
+            print value, i
+            bits = bits[i:]
+            break
 
-    print('extract codes')
-    i = 0;
-    while i < matches.size:
-        match = matches[i]
-        if match > 0.9:
-            samplePt = i + int(250e-6*INRATE)
-            code = ""
-            for j in range(47*8):
-                x = bits[samplePt]
-                if x > 0.5: code += "1"
-                else: code += "0"
-                samplePt += int(500e-6*INRATE)
-            codes.add(code)
-            try: codeCounts[code] += 1
-            except: codeCounts[code] = 1
-            i += int(10e-3*INRATE) #skip start frame
-        else: i += 1
+    while bits[0] == 0:
+        bits = bits[1:]
+    bits = bits[:int(47e-3*INRATE)]
 
-    for code, count in codeCounts.iteritems(): print("%d: %s"%(count, code))
+    code = bits[::50]
+    codeStr = ""
+    for ch in code:
+        if ch == 0: codeStr += '0'
+        else: codeStr += '1'
+    print codeStr
 
-    #plotHelper(
-    #    bits[i-1000:i+int(50e-3*INRATE)],
-    #)
+    dumpSamples = bits
+    plotHelper(dumpSamples)
+
+    dumpSamples = dumpSamples.astype(np.complex64)
+    print("Dumping %d samples"%dumpSamples.size)
+    dumpSamples.tofile(sys.argv[2])
