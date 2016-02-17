@@ -13,6 +13,7 @@ POTHOS_MODULE_UTIL(
     TARGET BTLE_Blocks
     SOURCES
         BTLEDecoder.cpp
+        Brennenstuhl3600.cpp
     DESTINATION btle
     ENABLE_DOCS
 )
