@@ -96,10 +96,10 @@
                     "inputDesc" : [
                         {
                             "alias" : "0",
-                            "dtype" : "uint16",
+                            "dtype" : "unspecified",
                             "isSigSlot" : false,
                             "name" : "0",
-                            "size" : 2
+                            "size" : 1
                         }
                     ],
                     "outputDesc" : [
