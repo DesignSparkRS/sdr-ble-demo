@@ -13,3 +13,7 @@ SDR Source -> Freq Demod -> BTLE Decoder -> Message Printer
 ## btle_printer_int16.pth
 
 Same as btle_printer_float32 but using only fixed point blocks.
+
+## brennenstuhl_3600_control.pth
+
+Control the Brennenstuhl 3600 with a simple GUI and SDR sink.

@@ -6,6 +6,32 @@
 #include <complex>
 #include <cmath>
 #include <queue>
+#include <map>
+
+template <typename CodesType>
+void loadCodes(CodesType &codes)
+{
+    codes[true]["A"] = {
+    "1111110000000000000011010011011010010011101001101001101101001001001001101001101001101101001000",
+    "1111110000000000000011010011011010010011101001101001101101001001001001101001101001101101001001",
+    "1111110000000000000011010011011010010011010001101001101101001001001001101001101001101101001001",
+    "1111110000000000000011010011011010010011010001101001101101001001001001101001101001101101001000",
+    "1111110000000000000011010011011010010011001001101001101101001001001001101001101001101101001001",
+    "1111110000000000000011010011011010010011001001101001101101001001001001101001101001101101001000",
+    "1111110000000000000011010011011010010011011001101001101101001001001001101001101001101101001000",
+    "1111110000000000000011010011011010010011011001101001101101001001001001101001101001101101001001",
+    };
+    codes[false]["A"] = {
+    "1111110000000000000011010011011011010011001001001101001101101001101001101001101101101101001000",
+    "1111110000000000000011010011011011010011001001001101001101101001101001101001101101101101001001",
+    "1111110000000000000011010011011011010011010001001101001101101001101001101001101101101101001000",
+    "1111110000000000000011010011011011010011010001001101001101101001101001101001101101101101001001",
+    "1111110000000000000011010011011011010011101001001101001101101001101001101001101101101101001001",
+    "1111110000000000000011010011011011010011101001001101001101101001101001101001101101101101001000",
+    "1111110000000000000011010011011011010011011001001101001101101001101001101001101101101101001001",
+    "1111110000000000000011010011011011010011011001001101001101101001101001101001101101101101001000",
+    };
+}
 
 /***********************************************************************
  * |PothosDoc Brennenstuhl 3600
@@ -35,6 +61,11 @@
  * |param repeat The number of times to repeat a control packet.
  * |default 10
  *
+ * |param startLabel[Start Label] An optional start of burst label.
+ * |widget StringEntry()
+ * |default ""
+ * |preview valid
+ *
  * |param endLabel[End Label] An optional end of burst label.
  * |widget StringEntry()
  * |default "txEnd"
@@ -46,12 +77,18 @@
  * |setter setRate(rate)
  * |setter setGain(gain)
  * |setter setRepeat(repeat)
+ * |setter setStartLabel(startLabel)
  * |setter setEndLabel(endLabel)
  **********************************************************************/
 class Brennenstuhl3600 : public Pothos::Block
 {
 public:
-    Brennenstuhl3600(void)
+    Brennenstuhl3600(void):
+        _mode(false),
+        _group("A"),
+        _rate(1.0),
+        _gain(1.0),
+        _repeat(1)
     {
         this->setupOutput(0, typeid(std::complex<float>));
         this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setMode));
@@ -59,7 +96,9 @@ public:
         this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setRate));
         this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setGain));
         this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setRepeat));
+        this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setStartLabel));
         this->registerCall(this, POTHOS_FCN_TUPLE(Brennenstuhl3600, setEndLabel));
+        loadCodes(_codeMap);
     }
 
     static Block *make(void)
@@ -93,6 +132,11 @@ public:
         _repeat = repeat;
     }
 
+    void setStartLabel(const std::string &label)
+    {
+        _startLabel = label;
+    }
+
     void setEndLabel(const std::string &label)
     {
         _endLabel = label;
@@ -110,10 +154,20 @@ public:
         if (N == 0) return;
         if (_toTransmit.empty()) return;
 
+        if (_doStartBurst and not _startLabel.empty())
+        {
+            outPort->postLabel(Pothos::Label(_startLabel, Pothos::Object(), 0));
+            _doStartBurst = false;
+        }
+
         auto out = outPort->buffer().as<std::complex<float> *>();
         for (size_t i = 0; i < N; i++)
         {
-            out[i] = _toTransmit.front()?_gain:0;
+            //std::cout << "_sampsPerSym " << _sampsPerSym << std::endl;
+            //std::cout << "_samplesCount " << _samplesCount << std::endl;
+            //std::cout << "_toTransmit.size() " << _toTransmit.size() << std::endl;
+            //std::cout << "_toTransmit.front() " << _toTransmit.front() << std::endl;
+            out[i] = _toTransmit.front();
             _samplesCount++;
             if (_samplesCount == _sampsPerSym)
             {
@@ -136,16 +190,26 @@ private:
 
     void trigger(void)
     {
-        _toTransmit = std::queue<bool>(); //clear
-        _sampsPerSym = size_t(_rate/500e-6); //0.5 ms
+        _toTransmit = std::queue<float>(); //clear
+        _sampsPerSym = size_t(_rate*500e-6); //0.5 ms
         _samplesCount = 0;
-        //TODO fill with codes
+        _doStartBurst = true;
+        const auto &codes = _codeMap[_mode][_group];
+        for (size_t i = 0; i < _repeat; i++)
+        {
+            const auto &code = codes.at(std::rand()%codes.size());
+            for (const auto &ch : code)
+            {
+                _toTransmit.push((ch=='0')?0.0:_gain);
+            }
+        }
     }
 
     //current state
-    std::queue<bool> _toTransmit;
+    std::queue<float> _toTransmit;
     size_t _sampsPerSym;
     size_t _samplesCount;
+    bool _doStartBurst;
 
     //config
     bool _mode;
@@ -153,7 +217,11 @@ private:
     double _rate;
     float _gain;
     size_t _repeat;
+    std::string _startLabel;
     std::string _endLabel;
+
+    //map enable to group to list of codes
+    std::map<bool, std::map<std::string, std::vector<std::string>>> _codeMap;
 };
 
 static Pothos::BlockRegistry registerBrennenstuhl3600(

@@ -1,0 +1,675 @@
+{
+    "globals" : [
+        {
+            "name" : "txRate",
+            "value" : "1e6"
+        }
+    ],
+    "pages" : [
+        {
+            "graphObjects" : [
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "Brennenstuhl3600",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setMode",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setMode",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setGroup",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setGroup",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setRate",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setRate",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setGain",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setGain",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setRepeat",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setRepeat",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setStartLabel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setStartLabel",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setEndLabel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setEndLabel",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "0",
+                            "dtype" : "complex_float32",
+                            "isSigSlot" : false,
+                            "name" : "0",
+                            "size" : 8
+                        }
+                    ],
+                    "path" : "\/btle\/brennenstuhl_3600",
+                    "positionX" : 277,
+                    "positionY" : 301,
+                    "properties" : [
+                        {
+                            "key" : "mode",
+                            "value" : "false"
+                        },
+                        {
+                            "key" : "group",
+                            "value" : "\"A\""
+                        },
+                        {
+                            "key" : "rate",
+                            "value" : "txRate"
+                        },
+                        {
+                            "key" : "gain",
+                            "value" : "0.7"
+                        },
+                        {
+                            "key" : "repeat",
+                            "value" : "10"
+                        },
+                        {
+                            "key" : "startLabel",
+                            "value" : "\"START\""
+                        },
+                        {
+                            "key" : "endLabel",
+                            "value" : "\"txEnd\""
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 73
+                },
+                {
+                    "activeEditTab" : "Trigger",
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "WaveMonitor0",
+                    "inputDesc" : [
+                        {
+                            "alias" : "enableXAxis",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "enableXAxis",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "enableYAxis",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "enableYAxis",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setAutoScale",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setAutoScale",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setChannelLabel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setChannelLabel",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setChannelStyle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setChannelStyle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setNumPoints",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setNumPoints",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setSampleRate",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setSampleRate",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setYAxisTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setYAxisTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setYRange",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setYRange",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setAlignment",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setAlignment",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setEventRate",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setDisplayRate",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setHoldOff",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerHoldOff",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setLabelId",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerLabelId",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setLevel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerLevel",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setMode",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerMode",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setPosition",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerPosition",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setSlope",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerSlope",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setSource",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerSource",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setNumWindows",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTriggerWindows",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "0",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : false,
+                            "name" : "0",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+
+                    ],
+                    "path" : "\/plotters\/wave_monitor",
+                    "positionX" : 557,
+                    "positionY" : 219,
+                    "properties" : [
+                        {
+                            "key" : "title",
+                            "value" : "\"Transmitted Signal\""
+                        },
+                        {
+                            "key" : "numInputs",
+                            "value" : "1"
+                        },
+                        {
+                            "key" : "displayRate",
+                            "value" : "10.0"
+                        },
+                        {
+                            "key" : "sampleRate",
+                            "value" : "txRate"
+                        },
+                        {
+                            "key" : "numPoints",
+                            "value" : "1024*128"
+                        },
+                        {
+                            "key" : "align",
+                            "value" : "false"
+                        },
+                        {
+                            "key" : "autoScale",
+                            "value" : "true"
+                        },
+                        {
+                            "key" : "yRange",
+                            "value" : "[-1.0, 1.0]"
+                        },
+                        {
+                            "key" : "enableXAxis",
+                            "value" : "true"
+                        },
+                        {
+                            "key" : "enableYAxis",
+                            "value" : "true"
+                        },
+                        {
+                            "key" : "yAxisTitle",
+                            "value" : "\"\""
+                        },
+                        {
+                            "key" : "triggerSource",
+                            "value" : "0"
+                        },
+                        {
+                            "key" : "triggerWindows",
+                            "value" : "1"
+                        },
+                        {
+                            "key" : "triggerHoldOff",
+                            "value" : "0"
+                        },
+                        {
+                            "key" : "triggerSlope",
+                            "value" : "\"POS\""
+                        },
+                        {
+                            "key" : "triggerMode",
+                            "value" : "\"NORMAL\""
+                        },
+                        {
+                            "key" : "triggerLevel",
+                            "value" : "0.0"
+                        },
+                        {
+                            "key" : "triggerPosition",
+                            "value" : "0"
+                        },
+                        {
+                            "key" : "triggerLabelId",
+                            "value" : "\"START\""
+                        },
+                        {
+                            "key" : "label0",
+                            "value" : "\"\""
+                        },
+                        {
+                            "key" : "style0",
+                            "value" : "\"LINE\""
+                        },
+                        {
+                            "key" : "label1",
+                            "value" : "\"\""
+                        },
+                        {
+                            "key" : "style1",
+                            "value" : "\"LINE\""
+                        },
+                        {
+                            "key" : "label2",
+                            "value" : "\"\""
+                        },
+                        {
+                            "key" : "style2",
+                            "value" : "\"LINE\""
+                        },
+                        {
+                            "key" : "label3",
+                            "value" : "\"\""
+                        },
+                        {
+                            "key" : "style3",
+                            "value" : "\"LINE\""
+                        },
+                        {
+                            "key" : "rateLabelId",
+                            "value" : "\"rxRate\""
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 75
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "RadioGroup0",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setValue",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setValue",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setOptions",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setOptions",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "valueChanged",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "valueChanged",
+                            "size" : 1
+                        }
+                    ],
+                    "path" : "\/widgets\/radio_group",
+                    "positionX" : 148,
+                    "positionY" : 67,
+                    "properties" : [
+                        {
+                            "key" : "title",
+                            "value" : "\"Power Group\""
+                        },
+                        {
+                            "key" : "value",
+                            "value" : "\"A\""
+                        },
+                        {
+                            "key" : "options",
+                            "value" : "[[\"A\", \"A\"], [\"B\", \"B\"], [\"C\", \"C\"], [\"D\", \"D\"]]"
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 23
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "PushButton0",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setArgs",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setArgs",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "triggered",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "triggered",
+                            "size" : 1
+                        }
+                    ],
+                    "path" : "\/widgets\/push_button",
+                    "positionX" : 317,
+                    "positionY" : 56,
+                    "properties" : [
+                        {
+                            "key" : "title",
+                            "value" : "\"Power Off\""
+                        },
+                        {
+                            "key" : "args",
+                            "value" : "[false]"
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 62
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "PushButton1",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setArgs",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setArgs",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "triggered",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "triggered",
+                            "size" : 1
+                        }
+                    ],
+                    "path" : "\/widgets\/push_button",
+                    "positionX" : 447,
+                    "positionY" : 59,
+                    "properties" : [
+                        {
+                            "key" : "title",
+                            "value" : "\"Power On\""
+                        },
+                        {
+                            "key" : "args",
+                            "value" : "[true]"
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 64
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_Brennenstuhl36000_WaveMonitor00",
+                    "inputId" : "WaveMonitor0",
+                    "inputKey" : "0",
+                    "outputId" : "Brennenstuhl3600",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_RadioGroup0signals_Brennenstuhl3600",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "valueChanged",
+                            "setGroup"
+                        ]
+                    ],
+                    "signalId" : "RadioGroup0",
+                    "signalKey" : "signals",
+                    "slotId" : "Brennenstuhl3600",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 20
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_PushButton0signals_Brennenstuhl3600",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "triggered",
+                            "setMode"
+                        ]
+                    ],
+                    "signalId" : "PushButton0",
+                    "signalKey" : "signals",
+                    "slotId" : "Brennenstuhl3600",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 32
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_PushButton1signals_Brennenstuhl3600",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "triggered",
+                            "setMode"
+                        ]
+                    ],
+                    "signalId" : "PushButton1",
+                    "signalKey" : "signals",
+                    "slotId" : "Brennenstuhl3600",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 40
+                },
+                {
+                    "blockId" : "WaveMonitor0",
+                    "enabled" : true,
+                    "height" : 213,
+                    "id" : "WidgetWaveMonitor0",
+                    "positionX" : 649,
+                    "positionY" : 30,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 473,
+                    "zValue" : 49
+                },
+                {
+                    "blockId" : "RadioGroup0",
+                    "enabled" : true,
+                    "height" : 147,
+                    "id" : "WidgetRadioGroup0",
+                    "positionX" : 987,
+                    "positionY" : 251,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 109,
+                    "zValue" : 71
+                },
+                {
+                    "blockId" : "PushButton0",
+                    "enabled" : true,
+                    "height" : 30,
+                    "id" : "WidgetPushButton0",
+                    "positionX" : 885,
+                    "positionY" : 291,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 88,
+                    "zValue" : 69
+                },
+                {
+                    "blockId" : "PushButton1",
+                    "enabled" : true,
+                    "height" : 30,
+                    "id" : "WidgetPushButton1",
+                    "positionX" : 885,
+                    "positionY" : 254,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 88,
+                    "zValue" : 67
+                }
+            ],
+            "pageName" : "Main",
+            "selected" : true
+        }
+    ]
+}
