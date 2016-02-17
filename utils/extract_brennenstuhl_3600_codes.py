@@ -38,26 +38,34 @@ if __name__ == '__main__':
 
     startCorrMask = np.concatenate((
         np.array([1]*int(3e-3*INRATE)),
-        np.array([0]*int(6e-3*INRATE)),
+        np.array([0]*int(7e-3*INRATE)),
     ))
 
     codes = set()
+    codeCounts = dict()
 
     print('correlate for frame starts')
     matches = np.correlate(bits, startCorrMask)/sum(startCorrMask)
 
     print('extract codes')
-    for i, match in enumerate(matches):
+    i = 0;
+    while i < matches.size:
+        match = matches[i]
         if match > 0.9:
+            samplePt = i + int(250e-6*INRATE)
             code = ""
-            for j in range(47*2):
-                x = bits[i + int(250e-6*INRATE) + j*int(500e-6*INRATE)]
+            for j in range(47*8):
+                x = bits[samplePt]
                 if x > 0.5: code += "1"
                 else: code += "0"
+                samplePt += int(500e-6*INRATE)
             codes.add(code)
-            #print(sorted(list(codes)).index(code))
+            try: codeCounts[code] += 1
+            except: codeCounts[code] = 1
+            i += int(10e-3*INRATE) #skip start frame
+        else: i += 1
 
-    for code in codes: print(code)
+    for code, count in codeCounts.iteritems(): print("%d: %s"%(count, code))
 
     #plotHelper(
     #    bits[i-1000:i+int(50e-3*INRATE)],
