@@ -15,7 +15,8 @@ while :
 do
     cpu0_temp=$(cat /sys/devices/virtual/thermal/thermal_zone3/temp)
     cpu1_temp=$(cat /sys/devices/virtual/thermal/thermal_zone4/temp)
-    echo "$(date): cpu0_temp=${cpu0_temp}, cpu1_temp=${cpu1_temp}"
-    ${scriptdir}/advertise.exe "" "$1" "${cpu0_temp},${cpu1_temp}"
+    avg_tmp_c=$(python -c "print((${cpu0_temp}+${cpu1_temp})/2000.0)")
+    echo "$(date): cpu0_temp=${cpu0_temp} mC, cpu1_temp=${cpu1_temp} mC, avg=${avg_tmp_c} C"
+    ${scriptdir}/advertise.exe "" "$1" "${avg_tmp_c}"
     sleep 1
 done
