@@ -910,7 +910,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 559
+                    "zValue" : 611
                 },
                 {
                     "affinityZone" : "",
@@ -1120,186 +1120,6 @@
                     "zValue" : 609
                 },
                 {
-                    "enabled" : true,
-                    "id" : "packet0",
-                    "isInput" : true,
-                    "nodeName" : "packets",
-                    "positionX" : 628,
-                    "positionY" : 185,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Breaker",
-                    "zValue" : 555
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_BTLESensorMonitor0signals_TextDisplay1",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "sigSlots" : [
-                        [
-                            "value",
-                            "setFloatValue"
-                        ]
-                    ],
-                    "signalId" : "BTLESensorMonitor0",
-                    "signalKey" : "signals",
-                    "slotId" : "TextDisplay1",
-                    "slotKey" : "slots",
-                    "what" : "Connection",
-                    "zValue" : 547
-                },
-                {
-                    "enabled" : true,
-                    "id" : "packets0",
-                    "isInput" : false,
-                    "nodeName" : "packets",
-                    "positionX" : 34,
-                    "positionY" : 341,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Breaker",
-                    "zValue" : 565
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_FreqDemod10_BTLEDecoder00",
-                    "inputId" : "BTLEDecoder0",
-                    "inputKey" : "0",
-                    "outputId" : "FreqDemod1",
-                    "outputKey" : "0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Connection",
-                    "zValue" : 0
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_BTLEDecoder00_MessagePrinter00",
-                    "inputId" : "MessagePrinter0",
-                    "inputKey" : "0",
-                    "outputId" : "BTLEDecoder0",
-                    "outputKey" : "0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Connection",
-                    "zValue" : 0
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_SDRSource10_FreqDemod10",
-                    "inputId" : "FreqDemod1",
-                    "inputKey" : "0",
-                    "outputId" : "SDRSource1",
-                    "outputKey" : "0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Connection",
-                    "zValue" : 0
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_PeriodicTrigger0signals_BTLESensorMonitor0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "sigSlots" : [
-                        [
-                            "triggered",
-                            "triggerReport"
-                        ]
-                    ],
-                    "signalId" : "PeriodicTrigger0",
-                    "signalKey" : "signals",
-                    "slotId" : "BTLESensorMonitor0",
-                    "slotKey" : "slots",
-                    "what" : "Connection",
-                    "zValue" : 529
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_BTLESensorMonitor0signals_TextDisplay0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "sigSlots" : [
-                        [
-                            "state",
-                            "setStringValue"
-                        ]
-                    ],
-                    "signalId" : "BTLESensorMonitor0",
-                    "signalKey" : "signals",
-                    "slotId" : "TextDisplay0",
-                    "slotKey" : "slots",
-                    "what" : "Connection",
-                    "zValue" : 539
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_BTLEDecoder00_packet00",
-                    "inputId" : "packet0",
-                    "inputKey" : "0",
-                    "outputId" : "BTLEDecoder0",
-                    "outputKey" : "0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Connection",
-                    "zValue" : 0
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_packets00_BTLESensorMonitor00",
-                    "inputId" : "BTLESensorMonitor0",
-                    "inputKey" : "0",
-                    "outputId" : "packets0",
-                    "outputKey" : "0",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Connection",
-                    "zValue" : 0
-                },
-                {
-                    "blockId" : "TextDisplay0",
-                    "enabled" : true,
-                    "height" : 28,
-                    "id" : "WidgetTextDisplay0",
-                    "positionX" : 336,
-                    "positionY" : 237,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Widget",
-                    "width" : 152,
-                    "zValue" : 592
-                },
-                {
-                    "blockId" : "TextDisplay1",
-                    "enabled" : true,
-                    "height" : 28,
-                    "id" : "WidgetTextDisplay1",
-                    "positionX" : 340,
-                    "positionY" : 303,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "what" : "Widget",
-                    "width" : 236,
-                    "zValue" : 591
-                },
-                {
                     "affinityZone" : "",
                     "enabled" : true,
                     "id" : "Brennenstuhl3600",
@@ -1400,26 +1220,6 @@
                     "selected" : false,
                     "what" : "Block",
                     "zValue" : 585
-                },
-                {
-                    "enabled" : true,
-                    "id" : "Connection_BTLESensorMonitor0signals_Brennenstuhl3600",
-                    "positionX" : 0,
-                    "positionY" : 0,
-                    "rotation" : 0,
-                    "selected" : false,
-                    "sigSlots" : [
-                        [
-                            "active",
-                            "setMode"
-                        ]
-                    ],
-                    "signalId" : "BTLESensorMonitor0",
-                    "signalKey" : "signals",
-                    "slotId" : "Brennenstuhl3600",
-                    "slotKey" : "slots",
-                    "what" : "Connection",
-                    "zValue" : 579
                 },
                 {
                     "activeEditTab" : "Streaming",
@@ -2031,7 +1831,7 @@
                     "properties" : [
                         {
                             "key" : "deviceArgs",
-                            "value" : "{\"driver\":\"hackrf\"}"
+                            "value" : "{\"driver\":\"lime\"}"
                         },
                         {
                             "key" : "dtype",
@@ -2091,7 +1891,7 @@
                         },
                         {
                             "key" : "clockRate",
-                            "value" : "0.0"
+                            "value" : "32e6"
                         },
                         {
                             "key" : "clockSource",
@@ -2109,7 +1909,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 607
+                    "zValue" : 616
                 },
                 {
                     "activeEditTab" : "Trigger",
@@ -2674,6 +2474,180 @@
                 },
                 {
                     "enabled" : true,
+                    "id" : "packet0",
+                    "isInput" : true,
+                    "nodeName" : "packets",
+                    "positionX" : 628,
+                    "positionY" : 185,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Breaker",
+                    "zValue" : 555
+                },
+                {
+                    "enabled" : true,
+                    "id" : "packets0",
+                    "isInput" : false,
+                    "nodeName" : "packets",
+                    "positionX" : 34,
+                    "positionY" : 341,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Breaker",
+                    "zValue" : 565
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLESensorMonitor0signals_TextDisplay1",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "value",
+                            "setFloatValue"
+                        ]
+                    ],
+                    "signalId" : "BTLESensorMonitor0",
+                    "signalKey" : "signals",
+                    "slotId" : "TextDisplay1",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 547
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_FreqDemod10_BTLEDecoder00",
+                    "inputId" : "BTLEDecoder0",
+                    "inputKey" : "0",
+                    "outputId" : "FreqDemod1",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLEDecoder00_MessagePrinter00",
+                    "inputId" : "MessagePrinter0",
+                    "inputKey" : "0",
+                    "outputId" : "BTLEDecoder0",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_SDRSource10_FreqDemod10",
+                    "inputId" : "FreqDemod1",
+                    "inputKey" : "0",
+                    "outputId" : "SDRSource1",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_PeriodicTrigger0signals_BTLESensorMonitor0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "triggered",
+                            "triggerReport"
+                        ]
+                    ],
+                    "signalId" : "PeriodicTrigger0",
+                    "signalKey" : "signals",
+                    "slotId" : "BTLESensorMonitor0",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 529
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLESensorMonitor0signals_TextDisplay0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "state",
+                            "setStringValue"
+                        ]
+                    ],
+                    "signalId" : "BTLESensorMonitor0",
+                    "signalKey" : "signals",
+                    "slotId" : "TextDisplay0",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 539
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLEDecoder00_packet00",
+                    "inputId" : "packet0",
+                    "inputKey" : "0",
+                    "outputId" : "BTLEDecoder0",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_packets00_BTLESensorMonitor00",
+                    "inputId" : "BTLESensorMonitor0",
+                    "inputKey" : "0",
+                    "outputId" : "packets0",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLESensorMonitor0signals_Brennenstuhl3600",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "active",
+                            "setMode"
+                        ]
+                    ],
+                    "signalId" : "BTLESensorMonitor0",
+                    "signalKey" : "signals",
+                    "slotId" : "Brennenstuhl3600",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 579
+                },
+                {
+                    "enabled" : true,
                     "id" : "Connection_FIRFilter00_SDRSink00",
                     "inputId" : "SDRSink0",
                     "inputKey" : "0",
@@ -2733,6 +2707,32 @@
                     "selected" : false,
                     "what" : "Connection",
                     "zValue" : 0
+                },
+                {
+                    "blockId" : "TextDisplay0",
+                    "enabled" : true,
+                    "height" : 28,
+                    "id" : "WidgetTextDisplay0",
+                    "positionX" : 336,
+                    "positionY" : 237,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 152,
+                    "zValue" : 592
+                },
+                {
+                    "blockId" : "TextDisplay1",
+                    "enabled" : true,
+                    "height" : 28,
+                    "id" : "WidgetTextDisplay1",
+                    "positionX" : 340,
+                    "positionY" : 303,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 236,
+                    "zValue" : 591
                 }
             ],
             "pageName" : "Ma&in",

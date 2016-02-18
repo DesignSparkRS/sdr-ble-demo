@@ -68,3 +68,15 @@ Run the PothosGui, and open examples/brennenstuhl_3600_control.pth.
 Click execute, use the Radio buttons and On/Off buttons to control the switch.
 
 ![Screenshot](https://raw.githubusercontent.com/DesignSparkrs/sdr-ble-demo/master/references/screenshots/3600_control.png)
+
+Finally, we will put everything together.
+Another block included in this repository, the BTLE Sensor Monitor,
+will read the decoded sensor values and check them against a threshold.
+The monitor's events can be used to control GUI displays
+and the Brennenstuhl 3600 power switch.
+
+Run the PothosGui, and open examples/btle_monitor_control.pth.
+Click execute, and adjust the thresholds.
+Burning CPU cycles on the edison is a good way to increase the temperature to trigger the switch.
+
+![Screenshot](https://raw.githubusercontent.com/DesignSparkrs/sdr-ble-demo/master/references/screenshots/monitor_control.png)
