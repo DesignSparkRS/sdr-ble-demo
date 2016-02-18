@@ -123,7 +123,7 @@
                     "zValue" : 515
                 },
                 {
-                    "activeEditTab" : "Streaming",
+                    "activeEditTab" : "Channels",
                     "affinityZone" : "gui",
                     "enabled" : true,
                     "id" : "SDRSource1",
@@ -780,11 +780,11 @@
                         },
                         {
                             "key" : "antenna",
-                            "value" : "\"\""
+                            "value" : "\"LNAL\""
                         },
                         {
                             "key" : "bandwidth",
-                            "value" : "0.0"
+                            "value" : "10e6"
                         },
                         {
                             "key" : "dcOffsetMode",
@@ -810,7 +810,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 517
+                    "zValue" : 520
                 },
                 {
                     "enabled" : true,

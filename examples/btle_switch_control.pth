@@ -8,38 +8,128 @@
                 {
                     "affinityZone" : "",
                     "enabled" : true,
-                    "id" : "FreqDemod1",
+                    "id" : "BTLESensorMonitor0",
                     "inputDesc" : [
                         {
                             "alias" : "0",
-                            "dtype" : "complex_int16",
+                            "dtype" : "unspecified",
                             "isSigSlot" : false,
                             "name" : "0",
-                            "size" : 4
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "triggerReport",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "triggerReport",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setServiceUUID",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setServiceUUID",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setActivationLevel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setActivationLevel",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setDeactivationLevel",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setDeactivationLevel",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setAlarmTimeout",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setAlarmTimeout",
+                            "size" : 1
                         }
                     ],
                     "outputDesc" : [
                         {
-                            "alias" : "0",
-                            "dtype" : "int16",
-                            "isSigSlot" : false,
-                            "name" : "0",
-                            "size" : 2
+                            "alias" : "state",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "state",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "alarm",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "alarm",
+                            "size" : 1
                         }
                     ],
-                    "path" : "\/comms\/freq_demod",
-                    "positionX" : 399,
-                    "positionY" : 120,
+                    "path" : "\/btle\/btle_sensor_monitor",
+                    "positionX" : 721,
+                    "positionY" : 355,
                     "properties" : [
                         {
-                            "key" : "dtype",
-                            "value" : "\"complex_int16\""
+                            "key" : "serviceUUID",
+                            "value" : "\"EA06\""
+                        },
+                        {
+                            "key" : "activationLevel",
+                            "value" : "0"
+                        },
+                        {
+                            "key" : "deactivationLevel",
+                            "value" : "0"
+                        },
+                        {
+                            "key" : "alarmTimeout",
+                            "value" : "10"
                         }
                     ],
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 514
+                    "zValue" : 534
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "FreqDemod1",
+                    "inputDesc" : [
+                        {
+                            "alias" : "0",
+                            "dtype" : "complex_float32",
+                            "isSigSlot" : false,
+                            "name" : "0",
+                            "size" : 8
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "0",
+                            "dtype" : "float32",
+                            "isSigSlot" : false,
+                            "name" : "0",
+                            "size" : 4
+                        }
+                    ],
+                    "path" : "\/comms\/freq_demod",
+                    "positionX" : 384,
+                    "positionY" : 146,
+                    "properties" : [
+                        {
+                            "key" : "dtype",
+                            "value" : "\"complex_float32\""
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 518
                 },
                 {
                     "affinityZone" : "",
@@ -72,8 +162,8 @@
 
                     ],
                     "path" : "\/blocks\/message_printer",
-                    "positionX" : 789,
-                    "positionY" : 121,
+                    "positionX" : 774,
+                    "positionY" : 147,
                     "properties" : [
                         {
                             "key" : "dest",
@@ -112,15 +202,15 @@
                         }
                     ],
                     "path" : "\/btle\/btle_decoder",
-                    "positionX" : 560,
-                    "positionY" : 121,
+                    "positionX" : 545,
+                    "positionY" : 147,
                     "properties" : [
 
                     ],
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 515
+                    "zValue" : 523
                 },
                 {
                     "activeEditTab" : "Channels",
@@ -720,15 +810,15 @@
                         },
                         {
                             "alias" : "0",
-                            "dtype" : "complex_int16",
+                            "dtype" : "complex_float32",
                             "isSigSlot" : false,
                             "name" : "0",
-                            "size" : 4
+                            "size" : 8
                         }
                     ],
                     "path" : "\/sdr\/source",
-                    "positionX" : 134,
-                    "positionY" : 120,
+                    "positionX" : 119,
+                    "positionY" : 146,
                     "properties" : [
                         {
                             "key" : "deviceArgs",
@@ -736,7 +826,7 @@
                         },
                         {
                             "key" : "dtype",
-                            "value" : "\"complex_int16\""
+                            "value" : "\"complex_float32\""
                         },
                         {
                             "key" : "channels",
@@ -810,7 +900,68 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 518
+                    "zValue" : 521
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_FreqDemod10_BTLEDecoder00",
+                    "inputId" : "BTLEDecoder0",
+                    "inputKey" : "0",
+                    "outputId" : "FreqDemod1",
+                    "outputKey" : "0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Connection",
+                    "zValue" : 0
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "PeriodicTrigger0",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setRate",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setRate",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setArgs",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setArgs",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+                        {
+                            "alias" : "triggered",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "triggered",
+                            "size" : 1
+                        }
+                    ],
+                    "path" : "\/blocks\/periodic_trigger",
+                    "positionX" : 703,
+                    "positionY" : 223,
+                    "properties" : [
+                        {
+                            "key" : "rate",
+                            "value" : "1.0"
+                        },
+                        {
+                            "key" : "args",
+                            "value" : "[]"
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 530
                 },
                 {
                     "enabled" : true,
@@ -828,10 +979,10 @@
                 },
                 {
                     "enabled" : true,
-                    "id" : "Connection_FreqDemod10_BTLEDecoder00",
-                    "inputId" : "BTLEDecoder0",
+                    "id" : "Connection_BTLEDecoder00_BTLESensorMonitor00",
+                    "inputId" : "BTLESensorMonitor0",
                     "inputKey" : "0",
-                    "outputId" : "FreqDemod1",
+                    "outputId" : "BTLEDecoder0",
                     "outputKey" : "0",
                     "positionX" : 0,
                     "positionY" : 0,
@@ -853,6 +1004,139 @@
                     "selected" : false,
                     "what" : "Connection",
                     "zValue" : 0
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_PeriodicTrigger0signals_BTLESensorMonitor0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "triggered",
+                            "triggerReport"
+                        ]
+                    ],
+                    "signalId" : "PeriodicTrigger0",
+                    "signalKey" : "signals",
+                    "slotId" : "BTLESensorMonitor0",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 529
+                },
+                {
+                    "affinityZone" : "",
+                    "enabled" : true,
+                    "id" : "TextDisplay0",
+                    "inputDesc" : [
+                        {
+                            "alias" : "setTitle",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setTitle",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setFormatStr",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setFormatStr",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setBase",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setBase",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setStringValue",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setStringValue",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setFloatValue",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setFloatValue",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setComplexValue",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setComplexValue",
+                            "size" : 1
+                        },
+                        {
+                            "alias" : "setIntValue",
+                            "dtype" : "unspecified",
+                            "isSigSlot" : true,
+                            "name" : "setIntValue",
+                            "size" : 1
+                        }
+                    ],
+                    "outputDesc" : [
+
+                    ],
+                    "path" : "\/widgets\/text_display",
+                    "positionX" : 1018,
+                    "positionY" : 361,
+                    "properties" : [
+                        {
+                            "key" : "title",
+                            "value" : "\"My Text Value\""
+                        },
+                        {
+                            "key" : "formatStr",
+                            "value" : "\"%1\""
+                        },
+                        {
+                            "key" : "base",
+                            "value" : "10"
+                        }
+                    ],
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Block",
+                    "zValue" : 535
+                },
+                {
+                    "enabled" : true,
+                    "id" : "Connection_BTLESensorMonitor0signals_TextDisplay0",
+                    "positionX" : 0,
+                    "positionY" : 0,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "sigSlots" : [
+                        [
+                            "state",
+                            "setStringValue"
+                        ]
+                    ],
+                    "signalId" : "BTLESensorMonitor0",
+                    "signalKey" : "signals",
+                    "slotId" : "TextDisplay0",
+                    "slotKey" : "slots",
+                    "what" : "Connection",
+                    "zValue" : 536
+                },
+                {
+                    "blockId" : "TextDisplay0",
+                    "enabled" : true,
+                    "height" : 42,
+                    "id" : "WidgetTextDisplay0",
+                    "positionX" : 574,
+                    "positionY" : 466,
+                    "rotation" : 0,
+                    "selected" : true,
+                    "what" : "Widget",
+                    "width" : 96,
+                    "zValue" : 538
                 }
             ],
             "pageName" : "Ma&in",

@@ -14,6 +14,7 @@ POTHOS_MODULE_UTIL(
     SOURCES
         BTLEDecoder.cpp
         Brennenstuhl3600.cpp
+        BTLESensorMonitor.cpp
     DESTINATION btle
     ENABLE_DOCS
 )

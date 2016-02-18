@@ -2,7 +2,7 @@
     "globals" : [
         {
             "name" : "txRate",
-            "value" : "1e6"
+            "value" : "4e6"
         }
     ],
     "pages" : [
@@ -618,7 +618,7 @@
                     "properties" : [
                         {
                             "key" : "deviceArgs",
-                            "value" : "{\"driver\":\"hackrf\"}"
+                            "value" : "{\"driver\":\"lime\"}"
                         },
                         {
                             "key" : "dtype",
@@ -666,11 +666,11 @@
                         },
                         {
                             "key" : "antenna",
-                            "value" : "\"\""
+                            "value" : "\"BAND1\""
                         },
                         {
                             "key" : "bandwidth",
-                            "value" : "0.0"
+                            "value" : "10e6"
                         },
                         {
                             "key" : "dcOffsetMode",
@@ -694,9 +694,9 @@
                         }
                     ],
                     "rotation" : 0,
-                    "selected" : false,
+                    "selected" : true,
                     "what" : "Block",
-                    "zValue" : 223
+                    "zValue" : 319
                 },
                 {
                     "affinityZone" : "",
@@ -1646,7 +1646,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 92,
-                    "zValue" : 252
+                    "zValue" : 323
                 },
                 {
                     "blockId" : "PushButton0",
@@ -1659,7 +1659,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 92,
-                    "zValue" : 235
+                    "zValue" : 322
                 },
                 {
                     "blockId" : "WaveMonitor0",
@@ -1672,7 +1672,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 473,
-                    "zValue" : 154
+                    "zValue" : 280
                 },
                 {
                     "blockId" : "RadioGroup0",
@@ -1685,7 +1685,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 104,
-                    "zValue" : 236
+                    "zValue" : 308
                 }
             ],
             "pageName" : "Ma&in",

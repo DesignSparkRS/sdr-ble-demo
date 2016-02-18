@@ -4,7 +4,7 @@ This project will make use of SDR hardware to receive and decode
 Bluetooth Low Energy advertisement packets containing sensor data.
 The sensor data will be used to control a wireless power switch.
 
-## Dependencies
+## Building dependencies
 
 * First install pothos: https://github.com/pothosware/pothos/wiki
 * Next build the blocks in this repository:
