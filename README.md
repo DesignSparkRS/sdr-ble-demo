@@ -8,12 +8,23 @@ The sensor data will be used to control a wireless power switch.
 
 For this project we will make use of the Intel Edison bluez stack
 to generate Bluetooth LE advertisement packets with sensor data.
-Sensor data will be read from a 1-wire temperature sensor
-and encoded into a PDU of the advertisement packet.
+Sensor data will be read from the on-die temperature sensor
+and encoded into the service data of the advertisement packet.
 
-* TODO: generate advertisement packets
-* TODO: poll temp sensors
-* TODO: server daemon to poll + advertise
+To use, scp the contents of the intel-edison/ directory to the edison.
+
+```
+scp -rp intel-edison/* root@intel-edison-ip:
+```
+
+Then login to the edison and run the temperature monitor script.
+This script will read the CPU die temperatures and encode them
+into the advertisement data. The second argument is a 16-bit UUID.
+Use the same UUID in the temperature monitoring and control block.
+
+```
+./temp-monitor.sh EA06
+```
 
 ## Receiving + decoding Bluetooth LE
 

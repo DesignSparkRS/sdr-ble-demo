@@ -26,9 +26,8 @@ struct hci_request ble_hci_request(uint16_t ocf, int clen, void * status, void *
 	return rq;
 }
 
-le_set_advertising_data_cp ble_hci_params_for_set_adv_data(char * name)
+le_set_advertising_data_cp ble_hci_params_for_set_adv_data(const char * name, const char *dataUUID, const char *data)
 {
-	int name_len = strlen(name);
 
 	le_set_advertising_data_cp adv_data_cp;
 	memset(&adv_data_cp, 0, sizeof(adv_data_cp));
@@ -37,21 +36,44 @@ le_set_advertising_data_cp ble_hci_params_for_set_adv_data(char * name)
 	// - ​"Core Specification Supplement (CSS) v5" 
 	// ( https://www.bluetooth.org/en-us/specification/adopted-specifications )
 
-	adv_data_cp.data[0] = 0x02; // Length.
-	adv_data_cp.data[1] = 0x01; // Flags field.
-	adv_data_cp.data[2] = 0x01; // LE Limited Discoverable Flag set
+	size_t i = 0;
+	adv_data_cp.data[i++] = 0x02; // Length.
+	adv_data_cp.data[i++] = 0x01; // Flags field.
+	adv_data_cp.data[i++] = 0x01; // LE Limited Discoverable Flag set
 
-	adv_data_cp.data[3] = name_len + 1; // Length.
-	adv_data_cp.data[4] = 0x09; // Name field.
-	memcpy(adv_data_cp.data + 5, name, name_len);
+	int name_len = strlen(name);
+	if (name_len != 0)
+	{
+		adv_data_cp.data[i++] = name_len + 1; // Length.
+		adv_data_cp.data[i++] = 0x09; // Name field.
+		memcpy(adv_data_cp.data + i, name, name_len);
+		i += name_len;
+	}
 
-	adv_data_cp.length = strlen(adv_data_cp.data);
+	int data_len = strlen(data);
+	if (data_len != 0)
+	{
+		uint16_t service_uuid = (uint16_t)strtol(dataUUID, NULL, 16);
+		adv_data_cp.data[i++] = data_len + 1 + 2; // Length.
+		adv_data_cp.data[i++] = 0x16; // Service Data field.
+		adv_data_cp.data[i++] = service_uuid & 0xff;
+		adv_data_cp.data[i++] = service_uuid >> 8;
+		memcpy(adv_data_cp.data + i, data, data_len);
+		i += data_len;
+	}
+
+	adv_data_cp.length = i;
 
 	return adv_data_cp;
 }
 
-int main()
+int main(int argc, const char* argv[])
 {
+	if (argc != 4)
+	{
+		printf("Usage: advertise.exe <name> <16-bit service uuid in hex - EA06> <arbitrary service data string>\n");
+		return -1;
+	}
 	int ret, status;
 
 	// Get HCI device.
@@ -83,7 +105,7 @@ int main()
 
 	// Set BLE advertisement data.
 	
-	le_set_advertising_data_cp adv_data_cp = ble_hci_params_for_set_adv_data("Intel Edison");
+	le_set_advertising_data_cp adv_data_cp = ble_hci_params_for_set_adv_data(argv[1], argv[2], argv[3]);
 	
 	struct hci_request adv_data_rq = ble_hci_request(
 		OCF_LE_SET_ADVERTISING_DATA,

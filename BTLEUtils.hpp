@@ -304,13 +304,15 @@ bool DecodeBTLEPacket(int32_t sample, int srate){
             if (len >= bytesLeft) break;
             unsigned type = SwapBits(data[1]);
             std::string name;
+            bool hasUUID16 = false;
             switch (type)
             {
             case 0x01: name = "Flags"; break;
             case 0x08: name = "Shortened Name"; break;
             case 0x09: name = "Complete Name"; break;
+            case 0x16: name = "Service Data"; hasUUID16 = true; break;
             case 0x24: name = "URI"; break;
-            case 0xFF: name = "Data"; break;
+            case 0xFF: name = "Manufacturer Data"; hasUUID16 = true; break;
             default: name = Poco::format("0x%02x", type); break;
             }
 
@@ -320,8 +322,16 @@ bool DecodeBTLEPacket(int32_t sample, int srate){
             }
             else
             {
+                size_t i = 2;
+                unsigned uuid16 = 0;
+                if (hasUUID16)
+                {
+                    uuid16 |= unsigned(SwapBits(data[i++])) << 0;
+                    uuid16 |= unsigned(SwapBits(data[i++])) << 8;
+                    packetData[name + " UUID16"] = Pothos::Object(Poco::format("%02x", unsigned(uuid16)));
+                }
                 std::string value;
-                for (size_t i = 2; i < len+1; i++)
+                for (; i < len+1; i++)
                 {
                     char ch = SwapBits(data[i]);
                     if (std::isprint(ch)) value.push_back(ch);
