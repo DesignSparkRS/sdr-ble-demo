@@ -22,15 +22,20 @@
  *
  * <h2>Output signals</h2>
  *
- * <strong>state</strong>
+ * <string>state</strong>
  * When the activation state changes (and at regular intervals),
- * the monitor block emits the "state" signal with a boolean value.
- * True means active, false means inactive.
+ * the monitor block emits the "state" signal with a string value.
+ * The value can be "ACTIVE", "INACTIVE", or "ALARM".
+ * The alarm will be occur if a BTLE packet has not been seen for more
+ * than the specified idle period.
  *
- * <strong>alarm</strong>
- * And at a regular interval, the monitor block emits the "alarm" signal.
- * The alarm will be true if a BTLE packet has not been seen for more
- * than the specified idle period. Otherwise alarm will be false.
+ * <string>value</strong>
+ * At regular intervals the monitor will emit the last seen sensor value
+ * from the "value" signal. The value will be a floating point number
+ *
+ * <string>active</strong>
+ * Emit the activation state (true or false) over the "active" signal.
+ * When the alarm has activated, the active state will always be false.
  *
  * |category /Control
  * |keywords bluetooth sensor monitor control
@@ -69,7 +74,8 @@ public:
     {
         this->setupInput(0); //input messages from decoder
         this->registerSignal("state");
-        this->registerSignal("alarm");
+        this->registerSignal("value");
+        this->registerSignal("active");
         this->registerSlot("triggerReport");
         this->registerCall(this, POTHOS_FCN_TUPLE(BTLESensorMonitor, setServiceUUID));
         this->registerCall(this, POTHOS_FCN_TUPLE(BTLESensorMonitor, setActivationLevel));
@@ -106,13 +112,16 @@ public:
     void triggerReport(void)
     {
         const bool isAlarm = std::chrono::high_resolution_clock::now() > _lastSensorTime + _alarmTimeout;
-        this->callVoid("state", _isActive);
-        this->callVoid("alarm", isAlarm);
+        if (isAlarm) _isActive = false; //disable when alarm has been set
+        this->callVoid("state", isAlarm?"ALARM":(_isActive?"ACTIVE":"INACTIVE"));
+        this->callVoid("value", _lastSensorValue);
+        this->callVoid("active", _isActive);
     }
 
     void activate(void)
     {
         _isActive = false;
+        _lastSensorValue = 0;
     }
 
     void work(void)
@@ -144,10 +153,10 @@ private:
         if (myUUID != remoteUUID) return;
 
         //extract sensor value
-        const auto sensorValue = std::stod(sensorDataStr);
+        _lastSensorValue = std::stod(sensorDataStr);
         if (
-            (not _isActive and sensorValue > _activationLevel) or
-            (_isActive and sensorValue < _deactivationLevel))
+            (not _isActive and _lastSensorValue > _activationLevel) or
+            (_isActive and _lastSensorValue < _deactivationLevel))
         {
             _isActive = not _isActive;
         }
@@ -156,6 +165,7 @@ private:
 
     //state
     bool _isActive;
+    double _lastSensorValue;
     std::chrono::high_resolution_clock::time_point _lastSensorTime;
 
     //config

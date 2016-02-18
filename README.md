@@ -57,6 +57,14 @@ Click execute, and see the packets from the intel edison.
 
 ## Controlling the wireless switch
 
-* TODO: Blocks to generate transmit packets for wireless switch
-* TODO: Example project to trigger power switch with GUI radio box
-* TODO: Example project tying it all together
+For this demo, we have selected the Brennenstuhl 3600 wireless power outlet switch.
+Lets use a SDR to control the switch remotely to  turn on and off an electrical socket
+The wireless protocol is simple on and off keying at 433.92 MHz.
+The Brennenstuhl 3600 block included in this repository
+is capable of generating codes to replicate all of the functions
+of the Brennenstuhl 3600 wireless remote.
+
+Run the PothosGui, and open examples/brennenstuhl_3600_control.pth.
+Click execute, use the Radio buttons and On/Off buttons to control the switch.
+
+![Screenshot](https://raw.githubusercontent.com/DesignSparkrs/sdr-ble-demo/master/references/screenshots/3600_control.png)

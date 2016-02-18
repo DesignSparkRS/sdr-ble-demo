@@ -694,7 +694,7 @@
                         }
                     ],
                     "rotation" : 0,
-                    "selected" : true,
+                    "selected" : false,
                     "what" : "Block",
                     "zValue" : 319
                 },
@@ -801,7 +801,6 @@
                     "zValue" : 172
                 },
                 {
-                    "activeEditTab" : "Trigger",
                     "affinityZone" : "",
                     "enabled" : true,
                     "id" : "WaveMonitor0",
@@ -979,7 +978,7 @@
                         },
                         {
                             "key" : "numPoints",
-                            "value" : "1024*128"
+                            "value" : "1024*512"
                         },
                         {
                             "key" : "align",
@@ -1646,7 +1645,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 92,
-                    "zValue" : 323
+                    "zValue" : 326
                 },
                 {
                     "blockId" : "PushButton0",
@@ -1664,15 +1663,15 @@
                 {
                     "blockId" : "WaveMonitor0",
                     "enabled" : true,
-                    "height" : 227,
+                    "height" : 241,
                     "id" : "WidgetWaveMonitor0",
                     "positionX" : 15,
                     "positionY" : 12,
                     "rotation" : 0,
-                    "selected" : false,
+                    "selected" : true,
                     "what" : "Widget",
                     "width" : 473,
-                    "zValue" : 280
+                    "zValue" : 325
                 },
                 {
                     "blockId" : "RadioGroup0",
