@@ -69,6 +69,8 @@ Click execute, use the Radio buttons and On/Off buttons to control the switch.
 
 ![Screenshot](https://raw.githubusercontent.com/DesignSparkrs/sdr-ble-demo/master/references/screenshots/3600_control.png)
 
+## Sensor monitor and control app
+
 Finally, we will put everything together.
 Another block included in this repository, the BTLE Sensor Monitor,
 will read the decoded sensor values and check them against a threshold.
