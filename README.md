@@ -27,6 +27,10 @@ and encoded into the service data of the advertisement packet.
 
 To use, scp the contents of the intel-edison/ directory to the edison.
 
+Note: It should be possible to use other devices that generate BTLE advertisement packets.
+The blocks in this project expect that the advertisement packets contain the service data field,
+where the contents of that service field contain a floating-point formatted string.
+
 ```
 scp -rp intel-edison/* root@intel-edison-ip:
 ```
