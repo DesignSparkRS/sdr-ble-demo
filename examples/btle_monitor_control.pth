@@ -103,7 +103,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 606
+                    "zValue" : 632
                 },
                 {
                     "affinityZone" : "",
@@ -908,9 +908,9 @@
                         }
                     ],
                     "rotation" : 0,
-                    "selected" : false,
+                    "selected" : true,
                     "what" : "Block",
-                    "zValue" : 611
+                    "zValue" : 643
                 },
                 {
                     "affinityZone" : "",
@@ -942,8 +942,8 @@
                         }
                     ],
                     "path" : "\/blocks\/periodic_trigger",
-                    "positionX" : 265,
-                    "positionY" : 240,
+                    "positionX" : 239,
+                    "positionY" : 216,
                     "properties" : [
                         {
                             "key" : "rate",
@@ -957,7 +957,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 566
+                    "zValue" : 627
                 },
                 {
                     "affinityZone" : "",
@@ -1209,7 +1209,7 @@
                         },
                         {
                             "key" : "startLabel",
-                            "value" : "\"\""
+                            "value" : "\"START\""
                         },
                         {
                             "key" : "endLabel",
@@ -1219,7 +1219,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 585
+                    "zValue" : 641
                 },
                 {
                     "activeEditTab" : "Streaming",
@@ -1909,10 +1909,9 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 616
+                    "zValue" : 642
                 },
                 {
-                    "activeEditTab" : "Trigger",
                     "affinityZone" : "",
                     "enabled" : true,
                     "id" : "WaveMonitor0",
@@ -2074,7 +2073,7 @@
                     "properties" : [
                         {
                             "key" : "title",
-                            "value" : "\"Transmitted Signal\""
+                            "value" : "\"\""
                         },
                         {
                             "key" : "numInputs",
@@ -2106,11 +2105,11 @@
                         },
                         {
                             "key" : "enableXAxis",
-                            "value" : "true"
+                            "value" : "false"
                         },
                         {
                             "key" : "enableYAxis",
-                            "value" : "true"
+                            "value" : "false"
                         },
                         {
                             "key" : "yAxisTitle",
@@ -2713,26 +2712,39 @@
                     "enabled" : true,
                     "height" : 28,
                     "id" : "WidgetTextDisplay0",
-                    "positionX" : 336,
-                    "positionY" : 237,
+                    "positionX" : 361,
+                    "positionY" : 147,
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 152,
-                    "zValue" : 592
+                    "zValue" : 620
                 },
                 {
                     "blockId" : "TextDisplay1",
                     "enabled" : true,
                     "height" : 28,
                     "id" : "WidgetTextDisplay1",
-                    "positionX" : 340,
-                    "positionY" : 303,
+                    "positionX" : 345,
+                    "positionY" : 204,
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 236,
-                    "zValue" : 591
+                    "zValue" : 621
+                },
+                {
+                    "blockId" : "WaveMonitor0",
+                    "enabled" : true,
+                    "height" : 158,
+                    "id" : "WidgetWaveMonitor0",
+                    "positionX" : 289,
+                    "positionY" : 265,
+                    "rotation" : 0,
+                    "selected" : false,
+                    "what" : "Widget",
+                    "width" : 308,
+                    "zValue" : 626
                 }
             ],
             "pageName" : "Ma&in",

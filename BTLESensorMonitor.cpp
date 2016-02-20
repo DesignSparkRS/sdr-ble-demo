@@ -132,7 +132,6 @@ public:
             const auto msg = inPort->popMessage();
             this->processSensorData(msg);
         }
-        this->triggerReport();
     }
 
 private:
@@ -159,6 +158,7 @@ private:
             (_isActive and _lastSensorValue < _deactivationLevel))
         {
             _isActive = not _isActive;
+            this->triggerReport();
         }
         _lastSensorTime = std::chrono::high_resolution_clock::now();
     }
