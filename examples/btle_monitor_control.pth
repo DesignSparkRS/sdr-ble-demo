@@ -224,7 +224,7 @@
                 },
                 {
                     "activeEditTab" : "Channels",
-                    "affinityZone" : "gui",
+                    "affinityZone" : "",
                     "enabled" : true,
                     "id" : "SDRSource1",
                     "inputDesc" : [
@@ -908,7 +908,7 @@
                         }
                     ],
                     "rotation" : 0,
-                    "selected" : true,
+                    "selected" : false,
                     "what" : "Block",
                     "zValue" : 643
                 },

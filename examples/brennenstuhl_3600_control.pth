@@ -1663,12 +1663,12 @@
                 {
                     "blockId" : "WaveMonitor0",
                     "enabled" : true,
-                    "height" : 241,
+                    "height" : 255,
                     "id" : "WidgetWaveMonitor0",
                     "positionX" : 15,
                     "positionY" : 12,
                     "rotation" : 0,
-                    "selected" : true,
+                    "selected" : false,
                     "what" : "Widget",
                     "width" : 473,
                     "zValue" : 325
