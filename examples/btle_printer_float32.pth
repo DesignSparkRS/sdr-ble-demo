@@ -39,8 +39,8 @@
 
                     ],
                     "path" : "\/blocks\/message_printer",
-                    "positionX" : 1013,
-                    "positionY" : 169,
+                    "positionX" : 823,
+                    "positionY" : 150,
                     "properties" : [
                         {
                             "key" : "dest",
@@ -54,7 +54,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 639
+                    "zValue" : 660
                 },
                 {
                     "affinityZone" : "",
@@ -79,15 +79,15 @@
                         }
                     ],
                     "path" : "\/btle\/btle_decoder",
-                    "positionX" : 820,
-                    "positionY" : 164,
+                    "positionX" : 652,
+                    "positionY" : 127,
                     "properties" : [
 
                     ],
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 618
+                    "zValue" : 661
                 },
                 {
                     "affinityZone" : "",
@@ -112,8 +112,8 @@
                         }
                     ],
                     "path" : "\/comms\/freq_demod",
-                    "positionX" : 662,
-                    "positionY" : 155,
+                    "positionX" : 637,
+                    "positionY" : 193,
                     "properties" : [
                         {
                             "key" : "dtype",
@@ -123,7 +123,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 634
+                    "zValue" : 662
                 },
                 {
                     "affinityZone" : "",
@@ -294,7 +294,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 648
+                    "zValue" : 650
                 },
                 {
                     "activeEditTab" : "Streaming",
@@ -984,7 +984,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 649
+                    "zValue" : 655
                 },
                 {
                     "affinityZone" : "",
@@ -1141,7 +1141,7 @@
                         },
                         {
                             "key" : "numTaps",
-                            "value" : "51"
+                            "value" : "31"
                         },
                         {
                             "key" : "alpha",
@@ -1159,7 +1159,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 643
+                    "zValue" : 653
                 },
                 {
                     "affinityZone" : "",
@@ -1513,7 +1513,7 @@
                         },
                         {
                             "key" : "tapsType",
-                            "value" : "\"COMPLEX\""
+                            "value" : "\"REAL\""
                         },
                         {
                             "key" : "decim",
@@ -1543,7 +1543,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 623
+                    "zValue" : 652
                 },
                 {
                     "affinityZone" : "",
