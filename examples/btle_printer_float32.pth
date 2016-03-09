@@ -294,10 +294,10 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 650
+                    "zValue" : 667
                 },
                 {
-                    "activeEditTab" : "Streaming",
+                    "activeEditTab" : "Channels",
                     "affinityZone" : "gui",
                     "enabled" : true,
                     "id" : "SDRSource1",
@@ -950,7 +950,7 @@
                         },
                         {
                             "key" : "gain",
-                            "value" : "30"
+                            "value" : "40"
                         },
                         {
                             "key" : "antenna",
@@ -984,7 +984,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 655
+                    "zValue" : 666
                 },
                 {
                     "affinityZone" : "",
@@ -1162,6 +1162,7 @@
                     "zValue" : 653
                 },
                 {
+                    "activeEditTab" : "Axis",
                     "affinityZone" : "",
                     "enabled" : true,
                     "id" : "WaveMonitor0",
@@ -1437,7 +1438,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 628
+                    "zValue" : 668
                 },
                 {
                     "affinityZone" : "",
@@ -1955,7 +1956,7 @@
                     "selected" : false,
                     "what" : "Widget",
                     "width" : 308,
-                    "zValue" : 640
+                    "zValue" : 664
                 }
             ],
             "pageName" : "Ma&in",

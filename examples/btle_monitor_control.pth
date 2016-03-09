@@ -1322,7 +1322,7 @@
                     "zValue" : 632
                 },
                 {
-                    "activeEditTab" : "Streaming",
+                    "activeEditTab" : "Channels",
                     "affinityZone" : "",
                     "enabled" : true,
                     "id" : "SDRSource1",
@@ -1975,7 +1975,7 @@
                         },
                         {
                             "key" : "gain",
-                            "value" : "30"
+                            "value" : "40"
                         },
                         {
                             "key" : "antenna",
@@ -2009,7 +2009,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 681
+                    "zValue" : 725
                 },
                 {
                     "affinityZone" : "",
