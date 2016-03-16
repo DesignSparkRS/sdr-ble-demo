@@ -2,11 +2,11 @@
     "globals" : [
         {
             "name" : "txRate",
-            "value" : "2e6"
+            "value" : "4e6"
         },
         {
             "name" : "rxRate",
-            "value" : "2e6"
+            "value" : "4e6"
         }
     ],
     "pages" : [
@@ -2400,7 +2400,7 @@
                         },
                         {
                             "key" : "decim",
-                            "value" : "1"
+                            "value" : "2"
                         },
                         {
                             "key" : "interp",
@@ -2426,7 +2426,7 @@
                     "rotation" : 0,
                     "selected" : false,
                     "what" : "Block",
-                    "zValue" : 714
+                    "zValue" : 726
                 },
                 {
                     "affinityZone" : "",
