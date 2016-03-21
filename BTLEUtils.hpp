@@ -297,7 +297,7 @@ bool DecodeBTLEPacket(int32_t sample, int srate){
         //extract packet fields
         //very oversimplified for a select number of fields
         uint8_t *data = packet_data + 8;
-        size_t bytesLeft = packet_length+2 - 8;
+        int bytesLeft = packet_length+2 - 8;
         while (bytesLeft >= 3)
         {
             size_t len = SwapBits(data[0]);
